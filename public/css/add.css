@@ -1,0 +1,43 @@
+body{
+    background-image: url(/images/book.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.add
+{   text-align: center;
+    width: 45%;
+    height: 40em;   
+    background-color:#e0dadac7;
+    margin: auto;
+}
+h2{
+    margin-top: 7%;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    
+}
+.add .des{
+    height: 6em;
+}
+
+.add input
+{
+  width: 400px;
+   height: 4em; 
+   border-radius: 30px;
+   border-color:darkgray;
+   background-color: rgb(233, 219, 212);
+}
+.add button
+{   width: 400px;
+    border-radius: 20px;
+    height: 4em;
+    color: white;
+    background-color:rgb(90, 30, 255);
+}
+#inp {
+    text-align: center;
+    margin: auto;
+  }
