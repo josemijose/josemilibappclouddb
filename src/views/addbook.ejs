@@ -58,17 +58,11 @@
  <div class="add"> <!-- form begins -->
  <!-- <form method="GET" action="/admin/add" >
   Title<input type="text"  -->
-  <form method="POST"  action="/admin/add" >
+  <form method="POST"  action="/admin/add" enctype="multipart/form-data">
         <h2>You can add new Book here</h2><br>
-        <input type="text"  name="title"  placeholder="Enter Book Name" required ><br><br>
-        <input type="text"  name="author" placeholder="Enter Author Name" required ><br><br>
-        <input type="text" name="genre" placeholder="Enter Genre" required><br><br> 
-        <input type="text" name="description"  placeholder="Brief description of Book:" required class="des"><br><br>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Upload Book's Photo</label>
-          <input type="file" name="image" id="inp">
-        </div>          
-      <br>
+     
+        <%- include('_form_fields')%>
+              <br>
         <button type="submit" >Add Book</button>
       <br>   
     

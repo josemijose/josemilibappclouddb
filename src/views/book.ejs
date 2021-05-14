@@ -12,6 +12,11 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="/css/styles.css" rel="stylesheet">
+    <script LANGUAGE="JavaScript">
+  
+      
+  
+      </script>
 	</head>
 <body>
 
@@ -103,17 +108,20 @@
               </div>
               <br><br>
             </div>
-          </div>
-         
-         <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+       
+          <a href="/books/<%=book.id%>/edit"  >edit</a>
+          <%- include('deleteform',
+                    {url:`/books/${book.id}`}) %>
+
+
+                  </div>      
         
-          
         </div>
       </div>
   	</div>
   </div>
 </div>
-                                                                                                                           
+                                                                                                                    <!--  -->
 <hr>
 <!-- footer -->
 <div class="container" id="footer">
@@ -154,5 +162,10 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+    <script src="/public/js/validate.js"></script>
 	</body>
 </html>
+
+
+
+

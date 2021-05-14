@@ -3,6 +3,7 @@ const loginRouter= express.Router();
 const signupRouter=express.Router();
 const addauthorRouter=express.Router();
 const app=new express();
+const methodOverride=require('method-override')
 const port =process.env.PORT || 2000;
 const nav=[
     {
@@ -17,7 +18,7 @@ const nav=[
         link:'/signup',name:'signup'
     },
     {
-        link:'/admin',name:'add book'
+        link:'/admin',name:'add book' //means addbook
     },
     {
         link:'/addauthor',name:'add author'
@@ -32,6 +33,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.set('view engine','ejs');
 app.set('views','./src/views');
+app.use(methodOverride('_method'))
 app.use('/books',booksRouter);
 app.use('/authors',authorsRouter);
 app.use('/login',loginRouter);
@@ -56,12 +58,9 @@ signupRouter.get('/',function(req,res){
     {nav,
     title:'Library'});
 });
-// addbookRouter.get('/',function(req,res){
-//     res.render("addbook",
-//     {nav});
-// });
+
 addauthorRouter.get('/',function(req,res){
     res.render("addauthor",{nav});
 });
 app.listen(port,()=>{console.log("Server Ready at"+port)});
-console.log("port no:5000"); 
+console.log("port no:2000"); 
