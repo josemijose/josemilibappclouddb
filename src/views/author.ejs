@@ -12,6 +12,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="/css/styles.css" rel="stylesheet">
+
 	</head>
 <body>
 
@@ -106,7 +107,8 @@
               </div>
               <br><br>
             </div>
-            <a href="/authors/<%=author.id%>/edit"  >edit</a>
+            <a href="/authors/<%=author.id%>/edit" class="btn btn-primary pull-right btnNext">Edit </a>
+
           
             <%- include('deleteform',
                      {url:`/authors/${author.id}`}) %> 
@@ -117,7 +119,6 @@
            
                   </div>   
           
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
         
           
         </div>

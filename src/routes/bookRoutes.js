@@ -52,7 +52,7 @@ function router(nav)
   
     // for update
 
-    booksRouter.put('/:id', async (req, res) => {
+      booksRouter.put('/:id', async (req, res) => {
         let book
         try {
           book = await Bookdata.findById(req.params.id)
@@ -67,13 +67,16 @@ function router(nav)
           if (book == null) {
             res.redirect('/')
           } else {
-            res.render('books/edit', {
+            res.render('edit', {
               book: book,
               errorMessage: 'Error updating book'
             })
           }
         }
       })
+
+
+
 
 // for delete
     booksRouter.delete('/:id', async (req, res) => {

@@ -1,7 +1,11 @@
-<form action="/authors/<%=author.id%>?_method=PUT" 
-method="POST">
-<%- include('_form_fieldsauthor') %>
-<a href="/authors/<%= author.id%>">cancel</a>
-<button type="submit">Update</button>
-
-</form>
+<link href="/css/add.css" rel="stylesheet">
+<div class="add">
+    <br>
+    <h1>Edit Author Details</h1>
+<br><br>
+<form action="/authors/<%= author.id %>?_method=PUT">
+    <%- include('_form_fieldsauthor') %>
+    <a href="/authors/<%= author.id %>">Cancel</a>
+    <button type="submit">Update</button>
+  </form>
+  </div>

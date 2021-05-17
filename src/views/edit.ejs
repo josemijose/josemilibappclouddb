@@ -1,8 +1,16 @@
-<h2>Edit Book</h2>
-<form action="/books/<%=book.id%>?_method=PUT" 
-method="POST">
+<link href="/css/add.css" rel="stylesheet">
+
+
+
+<div class="add">
+    <h2>Edit Book</h2>
+    
+<form  action="/books/<%=book.id%>?_method=PUT" 
+method="POST"   >
+
 <%- include('_form_fields') %>
 <a href="/books/<%= book.id%>">cancel</a>
 <button type="submit">Update</button>
 
 </form>
+</div>
