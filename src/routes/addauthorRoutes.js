@@ -4,7 +4,7 @@ const multer= require ('multer');
 const Authordata=require('../model/Authordata');
 
 const path=require('path');
-const uploadPath=path.join('public',Authordata.ImageBasePath)
+const uploadPath=path.join('public',Authordata.authorimagepath)
 const imageMimeTypes=['image/jpeg','image/png','images/gif']
 
 const upload=multer({

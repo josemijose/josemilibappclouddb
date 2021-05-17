@@ -56,21 +56,15 @@
   <!-- navbar ends -->
 
   <!-- form begins -->
-    
-  <form action="#" class="add" onsubmit="return notnull()">
+  <div class="add">
+  <form method="POST" action="/addauthor/add"   enctype="multipart/form-data" >
         <h2>You can add new Author here</h2>
-        <input type="text" name="name" placeholder="Enter Author Name" required ><br><br><br>
-        <input type="text" name="genre" placeholder="Enter Genre" required><br><br><br>    
-        <input type="text" name="description" placeholder="Brief description of author:" required class="des"><br><br> 
-        <div class="mb-3">
-          <label for="formFile"  class="form-label">Upload Author's Photo</label>
-          <input class="form-control" name="image"  type="file" id="inp">
-        </div>
+        <%- include('_form_fieldsauthor')%>
       <br><br>
         <button type="submit" >Add Author</button>
       <br>         
   </form>
-
+  </div>
     <!-- /form -->
   
 

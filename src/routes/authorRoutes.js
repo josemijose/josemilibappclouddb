@@ -1,10 +1,12 @@
 const express= require("express");
-const Authordata = require("../model/Authordata");
 const authorsRouter=express.Router();
+const Authordata = require("../model/Authordata");
+
+
 function router(nav){
 
 
-
+// for author page
     authorsRouter.get('/',function(req,res){
         Authordata.find()
         .then(function(authors){
@@ -17,20 +19,86 @@ function router(nav){
         })
     });
 
+    // for each author page
 
-    authorsRouter.get('/new',function(req,res){
-    res.render("addauthor",
-    {nav})
-})
-    
     authorsRouter.get('/:id',function(req,res){
-        const id=req.params.id
-        res.render("author",
-        {nav,
-        title:'Library',
-        author
+        const id=req.params.id;
+        Authordata.findOne({_id:id})
+        .then(function(author){
+            res.render("author",
+            {nav,
+            title:'Library',
+            author
+        });
+        })
+       
     });
-    });
+
+
+// for edit button
+
+authorsRouter.get('/:id/edit',function(req,res)
+{  
+    const author= Authordata.findById(req.params.id)
+    res.render('edita', { author: author })
+})
+
+
+// for update
+
+authorsRouter.put('/:id', async (req, res) => {
+    let author
+    try {
+      author = await Authordata.findById(req.params.id)
+      author.name = req.body.name
+      author.genre=req.body.genre
+      author.description=req.body.description
+      author.image=req.body.image
+      await author.save()
+      res.redirect(`authors/${author.id}`)
+    } catch {
+      if (author == null) {
+        res.redirect('/')
+      } else {
+        res.render('authors/edita', {
+          author: author,
+          errorMessage: 'Error updating Author'
+        })
+      }
+    }
+  })
+
+
+
+
+// authorsRouter.get('/:id/edit',async (req,res)=>
+// {try  { 
+//     const author=await Authordata.findById(req.params.id)
+//     res.render('edit', { author: author })
+// }
+// catch{
+//     res.redirect('/authors')
+// }})
+
+
+
+
+// for delete
+
+authorsRouter.delete('/:id', async (req, res) => {
+    let author
+    try {
+      author = await Authordata.findById(req.params.id)
+      await author.remove()
+      res.redirect('/authors')
+    } catch {
+      if (author == null) {
+        res.redirect('/')
+      } else {
+        res.redirect(`/authors/${author.id}`)
+      }
+    }
+  })
 
     return authorsRouter;
 }

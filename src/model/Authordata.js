@@ -1,9 +1,8 @@
 // access mongoose package
 const mongoose=require('mongoose');
 // database connection
-mongoose.connect('mongodb+srv://userone:userone@cluster0.nvotp.mongodb.net/libraryapp?retryWrites=true&w=majority')
 
-const ImageBasePath='/images'
+const authorimagepath='images/author'
 
 // Schema definition
 const Schema=mongoose.Schema;
@@ -20,4 +19,4 @@ const AuthorSchema=new Schema({
 const Authordata= mongoose.model('authordata',AuthorSchema);
  
 module.exports=Authordata;
-module.exports.ImageBasePath=ImageBasePath
+module.exports.authorimagepath=authorimagepath;
