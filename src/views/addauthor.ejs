@@ -59,12 +59,12 @@
     
   <form action="#" class="add" onsubmit="return notnull()">
         <h2>You can add new Author here</h2>
-        <input type="text"  placeholder="Enter Author Name" required ><br><br><br>
-        <input type="text" placeholder="Enter Genre" required><br><br><br>    
-        <input type="text" placeholder="Brief description of author:" required class="des"><br><br> 
+        <input type="text" name="name" placeholder="Enter Author Name" required ><br><br><br>
+        <input type="text" name="genre" placeholder="Enter Genre" required><br><br><br>    
+        <input type="text" name="description" placeholder="Brief description of author:" required class="des"><br><br> 
         <div class="mb-3">
-          <label for="formFile" class="form-label">Upload Author's Photo</label>
-          <input class="form-control"  type="file" id="inp">
+          <label for="formFile"  class="form-label">Upload Author's Photo</label>
+          <input class="form-control" name="image"  type="file" id="inp">
         </div>
       <br><br>
         <button type="submit" >Add Author</button>

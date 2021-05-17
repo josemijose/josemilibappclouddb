@@ -1,7 +1,6 @@
 const express= require("express");
 const loginRouter= express.Router();
 const signupRouter=express.Router();
-const addauthorRouter=express.Router();
 const app=new express();
 const methodOverride=require('method-override')
 const port =process.env.PORT || 2000;
@@ -28,7 +27,7 @@ const nav=[
 const adminRouter=require('./src/routes/adminRoutes')(nav)
 const booksRouter=require('./src/routes/bookRoutes')(nav)
 const authorsRouter= require('./src/routes/authorRoutes')(nav)
-
+const addauthorRouter=require('./src/routes/addauthorRoutes')(nav)
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.set('view engine','ejs');

@@ -1,10 +1,10 @@
 const express=require('express');
-const adminRouter=express.Router();
+const addauthorRouter=express.Router();
 const multer= require ('multer');
-const Bookdata=require('../model/Bookdata');
+const Authordata=require('../model/Authordata');
 
 const path=require('path');
-const uploadPath=path.join('public',Bookdata.ImageBasePath)
+const uploadPath=path.join('public',Authordata.ImageBasePath)
 const imageMimeTypes=['image/jpeg','image/png','images/gif']
 
 const upload=multer({
@@ -15,29 +15,28 @@ const upload=multer({
     }
 })
 
-// look of addbook page
 function router(nav){
-adminRouter.get('/',function(req,res){
-    res.render('addbook',{
+addauthorRouter.get('/',function(req,res){
+    res.render('addauthor',{
         nav
     })
 })
 // acessing data
 
-adminRouter.post('/add',upload.single('image'),function(req,res){
+addauthorRouter.post('/add',upload.single('image'),function(req,res){
     const fileName=req.file!=null?req.file.filename:null
     const item  ={        
-        title:req.body.title,
-        author:req.body.author,
+        name:req.body.name,
         genre:req.body.genre,
+        
         description:req.body.description,
         image:fileName
     }
-    var book=Bookdata(item);
-    book.save();
-    res.redirect('/books');
+    var author=Authordata(item);
+    author.save();
+    res.redirect('/authors');
 
 })
-return adminRouter;
+return addauthorRouter;
 }
 module.exports=router;

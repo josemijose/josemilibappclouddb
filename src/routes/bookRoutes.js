@@ -44,11 +44,12 @@ function router(nav)
     booksRouter.get('/:id/edit',async (req,res)=>
     {try  { 
         const book=await Bookdata.findById(req.params.id)
-        
+        res.render('edit', { book: book })
     }
     catch{
         res.redirect('/books')
     }})
+  
     // for update
 
     booksRouter.put('/:id', async (req, res) => {
